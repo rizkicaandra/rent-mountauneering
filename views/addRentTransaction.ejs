@@ -1,0 +1,22 @@
+<%- include('./partials/nav.ejs') %>
+    <h1>Pencatatan Peminjaman</h1>
+
+
+    <h2 class="name">Customer : <%= userData.name %></h2>
+    <form action="/transactions/add/<%= userData.id %>" method="post">
+    <label>Item :</label>
+    <select name="itemId" id="">
+        <option value=""selected disabled>---- Pilih Item ----</option>
+        <% for(let i = 0; i < itemsData.length; i++) { %>
+            <option value="<%= itemsData[i].id %>"><%= itemsData[i].name %></option>
+        <% } %>
+    </select>
+    <br>
+    <label for="jumlah">Jumlah : </label>
+    <input type="number" name="borrowedAmount" id="">
+    <br>
+
+    <button type="submit">Simpan</button>
+    </form>
+</body>
+</html>

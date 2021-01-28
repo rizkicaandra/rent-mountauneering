@@ -1,0 +1,29 @@
+<%- include('./partials/nav.ejs') %>
+
+    <h1>Daftar Peminjam</h1>
+
+    <table class="showData">
+        <thead>
+            <tr>
+                <th> Nama </th>
+                <th> Email </th>
+                <th> Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < data.length; i++){ %>
+                <% for(let j = 0; j < data[i].Items.length; j++) {%>    
+                <% if(data[i].Items[j].Transaction.status == 'false') { %>
+                <tr>
+                    <td><%= data[i].name %></td>
+                    <td><%= data[i].email %></td>
+                    <td><a href="/transactions/showrent/detail/<%= data[i].id %>"><button>Detail Peminjaman</button></a></td>
+                </tr>
+            <% }}} %>
+        </tbody>
+    </table>
+
+
+    
+</body>
+</html>

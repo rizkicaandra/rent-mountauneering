@@ -1,0 +1,14 @@
+<%- include('./partials/nav.ejs') %>
+    <h1>Edit Items</h1><br><br>
+
+    <form action="/items/edit/<%= id %>" method="POST">
+        <label for="name">Nama Item :</label>
+        <input type="text" name="name" id="name" value="<%= item.name %>"><br><br>
+
+        <label for="stok">Jumlah Stock : </label>
+        <input type="text" name="stock" id="stock" value="<%= item.stock %>"><br><br>
+        
+        <button type="submit">SIMPAN</button>
+    </form>
+</body>
+</html>

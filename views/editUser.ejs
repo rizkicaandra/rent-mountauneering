@@ -1,0 +1,31 @@
+<%- include('./partials/nav.ejs') %>
+    <h1>Edit User "<%= user.name %>"</h1>
+
+    <form action="/users/edit/<%= user.id %>" method="post">
+    
+    <label for="name">Nama :</label>
+    <input type="text" name="name" id="" value="<%= user.name %>">
+    <br>
+    <label for="nomorHp">No Telpon/Hp :</label>
+    <input type="text" name="phone" id="" value="<%= user.phone %>">
+    <br>
+    <label for="email">Email :</label>
+    <input type="email" name="email" id="" value="<%= user.email %>">
+    <br>
+    <label for="identitas">Nomor Identitas :</label>
+    <input type="text" name="identityNumber" id="" value="<%= user.identityNumber %>">
+    <br>
+    <label for="role">Role :</label>
+    <select name="role" id="">
+        <option value="" disabled> --- Pilih Role ---</option>
+        <option value="Super Admin" <%= user.role == 'Super Admin' ? 'selected' : '' %> >Super Admin</option>
+        <option value="Customer" <%= user.role == 'Customer' ? 'selected' : '' %>>Customer</option>
+    </select>
+    <br>
+
+    <button type="submit">SIMPAN</button>
+    <a href="/users">KEMBALI</a> 
+
+    </form>
+</body>
+</html>

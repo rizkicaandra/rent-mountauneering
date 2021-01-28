@@ -1,0 +1,35 @@
+<%- include('./partials/nav.ejs') %>
+    
+        <h1>Data Items</h1>
+
+        <a href="/items/add/"><button class="add">TAMBAH</button></a>
+        <table class="showData">
+            <thead>
+                <tr>
+                    <td>No</td>
+                    <td>Nama</td>
+                    <td>Stok</td>
+                    <td>Ketersediaan</td>
+                    <td>Picture</td>
+                    <td>Action</td>         
+                </tr>
+            </thead>
+            <tbody>
+                  <% for(let i=0; i < items.length; i++) { %>
+                <tr>
+                    <td><%= i + 1 %></td>
+                    <td><%= items[i].name %></td>
+                    <td><%= items[i].stock %></td>
+                    <td><%= items[i].availability %></td>
+                    <td><%= items[i].picture %></td>
+                    <td>
+                        <a href="/items/edit/<%= items[i].id %>"><button>UBAH</button></a>
+                        <a href="/items/delete/<%= items[i].id %>"><button>HAPUS</button></a>
+                    </td>
+                </tr>
+                   <% } %>
+            </tbody>
+        </table>
+</body>
+
+</html>

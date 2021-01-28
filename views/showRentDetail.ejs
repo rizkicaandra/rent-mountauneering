@@ -1,0 +1,39 @@
+<%- include('./partials/nav.ejs') %>
+
+    <h2 class="name"><%= addCustomer(data.name) %></h2>
+    <table class="showData">
+        <thead>
+            <tr>
+                <th> Nama Barang </th>
+                <th> Jumlah Pinjam </th>
+                <th> Tanggal Peminjaman </th>
+                <th> Status </th>
+                <th> Action </th>
+            </tr>
+        </thead>
+        <tbody>
+                <% for(let j = 0; j < data.Items.length; j++) {%>    
+                <% if(data.Items[j].Transaction.status == 'false') { %>
+                <tr>
+                    <td><%= data.Items[j].name %></td>
+                    <td><%= data.Items[j].Transaction.borrowedAmout %></td>
+                    <% let convertedDate = data.Items[j].Transaction.borrowDate.toISOString().split('T')[0]  %>
+                    <td><%= convertedDate %></td>
+                    <td>Belum dikembalikan</td>
+                    <form action="/transactions/showrent/done" method="POST">
+                        <input type="hidden" name="dataPeminjaman" value="<%= data.Items[j].Transaction.borrowDate %>">
+                        <input type="hidden" name="item" value="<%= data.Items[j].id %>">
+                        <input type="hidden" name="jumlah" value="<%= data.Items[j].Transaction.borrowedAmout %>">
+                        <input type="hidden" name="user" value="<%= data.id %>">
+                        <td><button type="submit">Proses Pengembalian</button></td>
+                    </form>
+
+                </tr>
+            <% }} %>
+        </tbody>
+    </table>
+
+
+    
+</body>
+</html>

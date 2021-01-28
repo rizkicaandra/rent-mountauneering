@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Mountauneering</title>
+</head>
+<body>
+    <h1>Tambah User</h1>
+
+    <form action="/users/add" method="post">
+    
+    <label for="name">Nama :</label>
+    <input type="text" name="name" id="">
+    <br>
+    <label for="nomorHp">No Telpon/Hp :</label>
+    <input type="text" name="phone" id="">
+    <br>
+    <label for="email">Email :</label>
+    <input type="email" name="email" id="">
+    <br>
+    <label for="identitas">Nomor Identitas :</label>
+    <input type="text" name="identityNumber" id="">
+    <br>
+    <label for="role">Role :</label>
+    <select name="role" id="">
+        <option value=""selected disabled> --- Pilih Role ---</option>
+        <option value="Super Admin">Super Admin</option>
+        <option value="Customer">Customer</option>
+    </select>
+    <br>
+    <label for="password">Password :</label>
+    <input type="password" name="password" id="">
+    <br>
+
+    <button type="submit">SIMPAN</button>
+    <a href="/users">KEMBALI</a> 
+    
+    </form>
+</body>
+</html>
