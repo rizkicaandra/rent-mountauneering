@@ -1,0 +1,38 @@
+<%- include('./partials/nav.ejs') %>
+    <h1>Data Users</h1>
+
+    <a href="/users/add/"><button class="add">TAMBAH</button></a>
+    
+    <table class="showData">
+        <thead>
+            <tr>
+                <td>No</td>
+                <td>Nama</td>
+                <td>Nomor Telpon/HP</td>
+                <td>email</td>
+                <td>Nomor Identitas</td>
+                <td>Role</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < users.length; i++) { %>
+            <tr>
+                <td><%= i + 1 %></td>
+                <td><%= users[i].name%></td>
+                <td><%= users[i].phone%></td>
+                <td><%= users[i].email%></td>
+                <td><%= users[i].identityNumber%></td>
+                <td><%= users[i].role%></td>
+                <td>
+                    <a href="/transactions/add/<%= users[i].id %>"><button>Pinjam Barang</button></a>
+                    <a href="/users/edit/<%= users[i].id %>"><button>UBAH</button></a>
+                    <a href="/users/edit/password/<%= users[i].id %>"><button>UBAH PASSWORD</button></a>
+                    <a href="/users/delete/<%= users[i].id %>"><button onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">HAPUS</button></a>
+                </td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
